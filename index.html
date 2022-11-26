@@ -1,0 +1,41 @@
+<html>  
+  <body>
+    <h1>strict mode</h1>
+
+    <p id="errorMessage"></p>
+
+    <script>
+      "use strict";
+      try {
+        var for = 1; //Use of reserved keyword as name
+      } catch (ex) {
+          document.getElementById("errorMessage").innerHTML = ex;
+      }
+      try {
+        myFunction();
+
+        function myFunction() {
+          y = 3.14; //Use of undefined variables
+        }
+      } catch (ex) {
+        document.getElementById("errorMessage").innerHTML = ex;
+      }
+      try {
+        let x = 3.14;
+        delete x; //Delete of an unqualified identifier
+      } catch (ex) {
+        document.getElementById("errorMessage").innerHTML = ex;
+      }
+      try {
+        function x(p1, p1) {} //Duplicate parameter name
+      } catch (ex) {
+        document.getElementById("errorMessage").innerHTML = ex;
+      }
+      try {
+        let arguments = 3.14; //The names arguments and eval are forbidden as identifiers
+      } catch (ex) {
+        document.getElementById("errorMessage").innerHTML = ex;
+      }
+    </script>
+  </body>
+</html>
